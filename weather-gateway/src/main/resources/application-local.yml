@@ -1,0 +1,6 @@
+# Configuration for local development environment
+# This profile is activated by default in application.yml
+
+spring:
+  rabbitmq:
+    host: localhost # Connect to a local RabbitMQ instance

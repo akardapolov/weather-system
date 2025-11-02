@@ -1,0 +1,35 @@
+# Configuration for local development environment
+# Assumes a base application.yml sets 'spring.profiles.active: local'
+
+server:
+  port: 8081 # Port for the processing service
+
+spring:
+  # RabbitMQ configuration for a local instance
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  # Datasource configuration for a local PostgreSQL instance
+  # These credentials match the ones in docker-compose.yml for consistency
+  datasource:
+    url: jdbc:postgresql://localhost:5432/weatherdb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  # JPA/Hibernate configuration for local development
+  jpa:
+    hibernate:
+      ddl-auto: update # Automatically updates the schema on startup. Convenient for dev.
+    show-sql: true # Log SQL statements to the console for debugging
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# Custom application properties
+forecast:
+  history:
+    size: 20 # Number of recent data points to use for extrapolation

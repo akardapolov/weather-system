@@ -1,0 +1,7 @@
+spring.rabbitmq:
+  host: rabbitmq # Service name from docker-compose
+
+weather:
+  processing:
+    service:
+      url: http://weather-processing:8081 # Service name from docker-compose

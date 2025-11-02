@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: weather-gateway
+  profiles:
+    active: local
+
+# RabbitMQ configuration
+spring.rabbitmq:
+  port: 5672
+  username: guest
+  password: guest
+
+# URL for the processing service
+weather:
+  processing:
+    service:
+      url: http://localhost:8081
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

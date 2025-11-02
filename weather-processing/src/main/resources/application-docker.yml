@@ -1,0 +1,15 @@
+spring:
+  # RabbitMQ configuration for Docker environment
+  rabbitmq:
+    host: rabbitmq # Service name from docker-compose
+
+  # Datasource configuration for Docker environment
+  datasource:
+    url: jdbc:postgresql://postgres:5432/weatherdb
+    username: ${DB_USER}   # Read from environment variable set in docker-compose.yml
+    password: ${DB_PASSWORD} # Read from environment variable set in docker-compose.yml
+
+  # JPA/Hibernate configuration for Docker
+  jpa:
+    hibernate:
+      ddl-auto: update # Automatically updates the schema on startup

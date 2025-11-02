@@ -1,0 +1,11 @@
+POST http://localhost:8080/api/v1/weather/data
+Content-Type: application/json
+
+{
+  "stationId": "station-01",
+  "timestamp": "2025-10-07T10:00:00Z",
+  "temperature": 25.0,
+  "humidity": 65.0,
+  "pressure": 1013.0,
+  "precipitation": 0.0
+}

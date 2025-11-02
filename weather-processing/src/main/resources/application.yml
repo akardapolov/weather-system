@@ -1,0 +1,33 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: weather-processing
+  profiles:
+    active: local
+  jpa:
+    hibernate:
+      ddl-auto: update # В проде лучше использовать flyway/liquibase
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/weatherdb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  rabbitmq:
+    port: 5672
+    username: guest
+    password: guest
+
+# Настройки прогнозирования
+forecast:
+  history:
+    size: 20
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
